@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // 1. Import your new screen file
+import 'screens/landing_page.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const HabitlyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HabitlyApp extends StatelessWidget {
+  const HabitlyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Habitly',
       debugShowCheckedModeBanner: false,
-      home: DashboardScreen(), // 2. Set it as the home page
+      theme: ThemeData(
+        scaffoldBackgroundColor: HabitlyColors.background,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: HabitlyColors.terracotta,
+          surface: HabitlyColors.background,
+        ),
+        useMaterial3: true,
+      ),
+      home: const LandingPage(),
     );
   }
 }
