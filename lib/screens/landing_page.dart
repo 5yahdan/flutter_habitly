@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'registration_page.dart';
 
 /// Habitly colors, taken from the design.
 class HabitlyColors {
@@ -34,10 +36,9 @@ class LandingPage extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     alignment: Alignment.center,
-                    child: const Text(
+                    child: Text(
                       'H',
-                      style: TextStyle(
-                        fontFamily: 'serif',
+                      style: GoogleFonts.fraunces(
                         fontSize: 32,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
@@ -47,10 +48,9 @@ class LandingPage extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // App name
-                  const Text(
+                  Text(
                     'Habitly',
-                    style: TextStyle(
-                      fontFamily: 'serif',
+                    style: GoogleFonts.fraunces(
                       fontSize: 34,
                       fontWeight: FontWeight.w900,
                       color: HabitlyColors.ink,
@@ -113,13 +113,18 @@ class LandingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 14),
 
-                  // Create an account
+                  // Create an account -> opens the Registration page
                   SizedBox(
                     width: double.infinity,
                     height: 52,
                     child: FilledButton(
                       onPressed: () {
-                        // TODO: go to the Registration page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const RegistrationPage(),
+                          ),
+                        );
                       },
                       style: FilledButton.styleFrom(
                         backgroundColor: HabitlyColors.terracotta,
